@@ -1,43 +1,56 @@
 package blooddonation.bean;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
 public class Demande {
-    private int id;
-    private Hopital hopital;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idDemande;
     private String groupeSanguin;
-    private int quantite;
+    private double quantite;
+    private String urgence;
     private LocalDate dateDemande;
+    private String statut;
 
-    public Demande() {}
+    @ManyToOne
+    @JoinColumn(name = "hopital_id")
+    private Hopital hopital;
 
-    public Demande(int id, Hopital hopital, String groupeSanguin, int quantite, LocalDate dateDemande) {
-        this.id = id;
-        this.hopital = hopital;
-        this.groupeSanguin = groupeSanguin;
-        this.quantite = quantite;
-        this.dateDemande = dateDemande;
-    }
+    @OneToMany(mappedBy = "demande", cascade = CascadeType.ALL)
+    private List<Correspondance> correspondances;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public Hopital getHopital() { return hopital; }
-    public void setHopital(Hopital hopital) { this.hopital = hopital; }
+    @OneToOne(mappedBy = "demande", cascade = CascadeType.ALL)
+    private Don don;
+
+    // Getters et Setters
+    public int getIdDemande() { return idDemande; }
+    public void setIdDemande(int idDemande) { this.idDemande = idDemande; }
+
     public String getGroupeSanguin() { return groupeSanguin; }
     public void setGroupeSanguin(String groupeSanguin) { this.groupeSanguin = groupeSanguin; }
-    public int getQuantite() { return quantite; }
-    public void setQuantite(int quantite) { this.quantite = quantite; }
+
+    public double getQuantite() { return quantite; }
+    public void setQuantite(double quantite) { this.quantite = quantite; }
+
+    public String getUrgence() { return urgence; }
+    public void setUrgence(String urgence) { this.urgence = urgence; }
+
     public LocalDate getDateDemande() { return dateDemande; }
     public void setDateDemande(LocalDate dateDemande) { this.dateDemande = dateDemande; }
 
-    @Override
-    public String toString() {
-        return "Demande{" +
-                "id=" + id +
-                ", hopital=" + hopital +
-                ", groupeSanguin='" + groupeSanguin + '\'' +
-                ", quantite=" + quantite +
-                ", dateDemande=" + dateDemande +
-                '}';
-    }
+    public String getStatut() { return statut; }
+    public void setStatut(String statut) { this.statut = statut; }
+
+    public Hopital getHopital() { return hopital; }
+    public void setHopital(Hopital hopital) { this.hopital = hopital; }
+
+    public List<Correspondance> getCorrespondances() { return correspondances; }
+    public void setCorrespondances(List<Correspondance> correspondances) { this.correspondances = correspondances; }
+
+    public Don getDon() { return don; }
+    public void setDon(Don don) { this.don = don; }
 }

@@ -1,21 +1,26 @@
 package blooddonation.bean;
 
-public class Hopital extends User {
-    private String ville;
+import javax.persistence.Entity;
 
-    public Hopital() { super(); }
+@Entity
+public class Admin extends User {
 
-    public Hopital(int id, String nom, String prenom, String email, String password,
-                   String phoneNum, String adresse, String role, String ville) {
-        super(id, nom, prenom, email, password, phoneNum, adresse, role);
-        this.ville = ville;
+    // Méthode pour valider l'inscription d'un utilisateur
+    public void validerInscription(User utilisateur) {
+        utilisateur.setRole("valide"); // Exemple : changer le rôle après validation
     }
 
-    public String getVille() { return ville; }
-    public void setVille(String ville) { this.ville = ville; }
+    // Méthode pour supprimer un utilisateur
+    public void supprimerUtilisateur(User utilisateur) {
+        // Ici tu pourrais appeler ton DAO pour supprimer l'utilisateur
+        System.out.println("Utilisateur " + utilisateur.getNom() + " supprimé !");
+    }
 
-    @Override
-    public String toString() {
-        return "Hopital{" + super.toString() + ", ville='" + ville + '\'' + '}';
+    // Méthode pour consulter les statistiques
+    public void consulterStatistiques() {
+        // Exemple simple
+        System.out.println("Nombre de dons : ...");
+        System.out.println("Nombre de demandes : ...");
+        System.out.println("Nombre de correspondances : ...");
     }
 }

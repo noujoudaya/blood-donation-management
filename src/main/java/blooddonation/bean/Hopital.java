@@ -1,43 +1,24 @@
 package blooddonation.bean;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Hopital extends User {
-    private String ville;
-    private int capacite;
 
-    public Hopital() {
-        super();
-    }
+    private String nomHopital;
+    private String localisation;
 
-    public Hopital(int id, String nom, String prenom, String email, String password,
-                   String phoneNum, String adresse, String role, String ville, int capacite) {
-        super(id, nom, prenom, email, password, phoneNum, adresse, role);
-        this.ville = ville;
-        this.capacite = capacite;
-    }
+    @OneToMany(mappedBy = "hopital", cascade = CascadeType.ALL)
+    private List<Demande> demandes;
 
-    public String getVille() {
-        return ville;
-    }
+    // Getters et Setters
+    public String getNomHopital() { return nomHopital; }
+    public void setNomHopital(String nomHopital) { this.nomHopital = nomHopital; }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
+    public String getLocalisation() { return localisation; }
+    public void setLocalisation(String localisation) { this.localisation = localisation; }
 
-    public int getCapacite() {
-        return capacite;
-    }
-
-    public void setCapacite(int capacite) {
-        this.capacite = capacite;
-    }
-
-    @Override
-    public String toString() {
-        return "Hopital{" +
-                super.toString() +
-                ", ville='" + ville + '\'' +
-                ", capacite=" + capacite +
-                '}';
-    }
+    public List<Demande> getDemandes() { return demandes; }
+    public void setDemandes(List<Demande> demandes) { this.demandes = demandes; }
 }
-
