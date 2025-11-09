@@ -1,33 +1,35 @@
 package blooddonation.bean;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
 public class Donneur extends User {
-    private String groupeSanguin ;
+
+    private String groupeSanguin;
     private LocalDate dateDernierDon;
     private boolean disponibilite;
 
-    public String getGroupeSanguin() {
-        return groupeSanguin;
-    }
+    @OneToMany(mappedBy = "donneur", cascade = CascadeType.ALL)
+    private List<Don> dons;
 
-    public void setGroupeSanguin(String groupeSanguin) {
-        this.groupeSanguin = groupeSanguin;
-    }
+    @OneToMany(mappedBy = "donneur", cascade = CascadeType.ALL)
+    private List<Correspondance> correspondances;
 
-    public LocalDate getDateDernierDon() {
-        return dateDernierDon;
-    }
+    // Getters et Setters
+    public String getGroupeSanguin() { return groupeSanguin; }
+    public void setGroupeSanguin(String groupeSanguin) { this.groupeSanguin = groupeSanguin; }
 
-    public void setDateDernierDon(LocalDate dateDernierDon) {
-        this.dateDernierDon = dateDernierDon;
-    }
+    public LocalDate getDateDernierDon() { return dateDernierDon; }
+    public void setDateDernierDon(LocalDate dateDernierDon) { this.dateDernierDon = dateDernierDon; }
 
-    public boolean isDisponibilite() {
-        return disponibilite;
-    }
+    public boolean isDisponibilite() { return disponibilite; }
+    public void setDisponibilite(boolean disponibilite) { this.disponibilite = disponibilite; }
 
-    public void setDisponibilite(boolean disponibilite) {
-        this.disponibilite = disponibilite;
-    }
+    public List<Don> getDons() { return dons; }
+    public void setDons(List<Don> dons) { this.dons = dons; }
+
+    public List<Correspondance> getCorrespondances() { return correspondances; }
+    public void setCorrespondances(List<Correspondance> correspondances) { this.correspondances = correspondances; }
 }
