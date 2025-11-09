@@ -27,6 +27,8 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  <!-- Custom CSS File -->
+  <link href="assets/css/custom.css" rel="stylesheet">
 
 
   <!-- =======================================================
@@ -107,7 +109,7 @@
                     </p>
 
                     <div class="cta-group" data-aos="fade-up" data-aos-delay="300">
-                      <a href="appointment.jsp" class="btn btn-outline">Create an Account</a>
+                      <a href="register.jsp" class="btn btn-outline">Create an Account</a>
                     </div>
                   </div>
                 </div>

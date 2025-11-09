@@ -28,13 +28,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: MediTrust
-  * Template URL: https://bootstrapmade.com/meditrust-bootstrap-hospital-website-template/
-  * Updated: Jul 04 2025 with Bootstrap v5.3.7
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body class="appointment-page">
@@ -255,7 +249,9 @@
                 </div>
               </form>
             </div>
-          </div><!-- End Appointment Form -->
+          </div>
+
+          <!-- End Appointment Form -->
 
         </div>
 
@@ -419,3 +415,122 @@
 </body>
 
 </html>
+
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Register</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+
+<body class="appointment-page">
+
+<main class="main">
+  <section id="appointmnet" class="appointmnet section">
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4">
+        <div class="col-lg-6">
+          <div class="appointment-form-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="text-center mb-4">Create Your Account</h2>
+            <form action="register.jsp" method="post" class="appointment-form php-email-form">
+              <div class="row gy-3">
+
+                <!-- Name -->
+                <div class="col-md-6">
+                  <input type="text" name="prenom" class="form-control" placeholder="First Name"
+                         required>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="nom" class="form-control" placeholder="Last Name" required>
+                </div>
+
+                <!-- Email & Phone -->
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Email Address"
+                         required>
+                </div>
+                <div class="col-md-6">
+                  <input type="tel" name="telephone" class="form-control" placeholder="Phone Number"
+                         required>
+                </div>
+
+                <!-- Password -->
+                <div class="col-md-6">
+                  <input type="password" name="motDePasse" class="form-control" placeholder="Password"
+                         required>
+                </div>
+                <div class="col-md-6">
+                  <input type="password" name="confirmPassword" class="form-control"
+                         placeholder="Confirm Password" required>
+                </div>
+
+                <div class="col-md-6">
+                  <select name="role" class="form-select" required>
+                    <option value="">Register As</option>
+                    <option value="donneur">Donneur</option>
+                    <option value="hopital">Hôpital / Patient</option>
+                    <option value="admin">Administrateur</option>
+                  </select>
+                </div>
+
+                <!-- Submission -->
+                <div class="col-12">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your account has been created successfully!</div>
+
+                  <button type="submit" class="btn btn-appointment w-100">
+                    <i class="bi bi-person-plus me-2"></i>Register
+                  </button>
+                </div>
+                <div class="col-12 text-center mt-3">
+                  <p>Already have an account? <a href="login.jsp">Sign In</a></p>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+
+</html>
+
+
+
+
+
+
