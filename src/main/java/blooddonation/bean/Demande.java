@@ -1,6 +1,7 @@
 package blooddonation.bean;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.List;
 

@@ -1,7 +1,8 @@
+/*
 package blooddonation.service;
 
 import blooddonation.bean.Correspondance;
-import blooddonation.dao.CorrespondanceDAO;
+import blooddonation.dao.interfaces.CorrespondanceDAO;
 import java.util.List;
 
 public class CorrespondanceServiceImpl implements CorrespondanceService {
@@ -37,3 +38,4 @@ public class CorrespondanceServiceImpl implements CorrespondanceService {
         return correspondanceDAO.findAll();
     }
 }
+*/

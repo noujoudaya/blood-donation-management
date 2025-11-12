@@ -1,6 +1,8 @@
-package blooddonation.dao;
+package blooddonation.dao.impl;
 
 import blooddonation.bean.Correspondance;
+import blooddonation.dao.interfaces.CorrespondanceDAO;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,9 @@
 package blooddonation.bean;
 
-import javax.persistence.*;
 
-@MappedSuperclass
+import jakarta.persistence.*;
+
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,8 @@
+/*
 package blooddonation.service;
 
 import blooddonation.bean.Don;
-import blooddonation.dao.DonDAO;
+import blooddonation.dao.interfaces.DonDAO;
 import java.util.List;
 
 public class DonServiceImpl implements DonService {
@@ -37,3 +38,4 @@ public class DonServiceImpl implements DonService {
         return donDAO.findAll();
     }
 }
+*/

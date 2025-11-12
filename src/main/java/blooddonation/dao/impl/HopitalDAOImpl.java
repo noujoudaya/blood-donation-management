@@ -1,3 +1,4 @@
+/*
 package blooddonation.dao;
 
 import blooddonation.bean.Hopital;
@@ -116,3 +117,4 @@ public class HopitalDAOImpl implements HopitalDAO {
         return list;
     }
 }
+*/

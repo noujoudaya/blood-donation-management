@@ -1,7 +1,8 @@
+/*
 package blooddonation.service;
 
 import blooddonation.bean.Hopital;
-import blooddonation.dao.HopitalDAO;
+import blooddonation.dao.interfaces.HopitalDAO;
 import java.util.List;
 
 public class HopitalServiceImpl implements HopitalService {
@@ -37,3 +38,4 @@ public class HopitalServiceImpl implements HopitalService {
         return hopitalDAO.findAll();
     }
 }
+*/

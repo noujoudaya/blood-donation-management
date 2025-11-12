@@ -1,7 +1,8 @@
+/*
 package blooddonation.service;
 
 import blooddonation.bean.Demande;
-import blooddonation.dao.DemandeDAO;
+import blooddonation.dao.interfaces.DemandeDAO;
 import java.util.List;
 
 public class DemandeServiceImpl implements DemandeService {
@@ -42,3 +43,4 @@ public class DemandeServiceImpl implements DemandeService {
         return demandeDAO.findByGroupeSanguin(groupe);
     }
 }
+*/

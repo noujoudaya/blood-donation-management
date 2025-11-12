@@ -1,7 +1,8 @@
+/*
 package blooddonation.service;
 
 import blooddonation.bean.Donneur;
-import blooddonation.dao.DonneurDAO;
+import blooddonation.dao.interfaces.DonneurDAO;
 import java.util.List;
 
 public class DonneurServiceImpl implements DonneurService {
@@ -42,3 +43,4 @@ public class DonneurServiceImpl implements DonneurService {
         return donneurDAO.findByGroupeSanguin(groupe);
     }
 }
+*/

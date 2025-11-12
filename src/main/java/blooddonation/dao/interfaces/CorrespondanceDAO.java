@@ -1,4 +1,4 @@
-package blooddonation.dao;
+package blooddonation.dao.interfaces;
 
 import blooddonation.bean.Correspondance;
 import java.util.List;

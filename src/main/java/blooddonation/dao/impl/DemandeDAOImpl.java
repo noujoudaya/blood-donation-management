@@ -1,3 +1,4 @@
+/*
 package blooddonation.dao;
 
 import blooddonation.bean.Demande;
@@ -96,3 +97,4 @@ public class DemandeDAOImpl implements DemandeDAO {
                 d.setIdDemande(rs.getInt("idDemande"));
                 d.setGroupeSanguin(rs.getString("groupeSanguin"));
                 d
+*/

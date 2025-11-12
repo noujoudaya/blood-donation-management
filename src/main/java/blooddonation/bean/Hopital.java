@@ -1,6 +1,9 @@
 package blooddonation.bean;
 
-import javax.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+
 import java.util.List;
 
 @Entity

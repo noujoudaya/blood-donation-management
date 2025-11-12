@@ -1,3 +1,25 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    String successMsg = (String) session.getAttribute("successMsg");
+    String errorMsg = (String) session.getAttribute("errorMsg");
+
+    if (successMsg != null) {
+%>
+<div class="alert alert-success"><%= successMsg %></div>
+<%
+        session.removeAttribute("successMsg");
+    }
+
+    if (errorMsg != null) {
+%>
+<div class="alert alert-danger"><%= errorMsg %></div>
+<%
+        session.removeAttribute("errorMsg");
+    }
+%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,10 +72,9 @@
 
                 <div class="col-lg-6">
                     <div class="appointment-info">
-                        <h3>Join the MedConnect Network</h3>
+                        <h3>Rejoignez le réseau MedConnect</h3>
                         <p class="mb-4">
-                            Create your MedConnect account to access a secure platform connecting blood donors, hospitals, and patients.
-                            Together, we save lives — one donation at a time.
+                            Créez votre compte MedConnect pour accéder à une plateforme sécurisée reliant donneurs de sang, hôpitaux et patients. Ensemble, sauvons des vies — un don à la fois.
                         </p>
 
                         <div class="info-items">
@@ -62,8 +83,8 @@
                                     <i class="bi bi-droplet-half text-danger"></i>
                                 </div>
                                 <div>
-                                    <h5>For Donors</h5>
-                                    <p class="mb-0">Find nearby donation requests and track your contribution history.</p>
+                                    <h5>Pour les donneurs</h5>
+                                    <p class="mb-0">Trouvez des demandes de don à proximité et suivez votre historique de dons.</p>
                                 </div>
                             </div>
 
@@ -72,8 +93,8 @@
                                     <i class="bi bi-hospital text-primary"></i>
                                 </div>
                                 <div>
-                                    <h5>For Hospitals</h5>
-                                    <p class="mb-0">Easily manage blood requests and connect with registered donors.</p>
+                                    <h5>Pour les hôpitaux</h5>
+                                    <p class="mb-0">Gérez facilement les demandes de sang et connectez-vous avec des donneurs enregistrés.</p>
                                 </div>
                             </div>
 
@@ -82,18 +103,18 @@
                                     <i class="bi bi-people text-success"></i>
                                 </div>
                                 <div>
-                                    <h5>For Patients</h5>
-                                    <p class="mb-0">Reach out quickly when urgent help is needed.</p>
+                                    <h5>Pour les patients</h5>
+                                    <p class="mb-0">Contactez rapidement en cas d’urgence pour obtenir de l’aide.</p>
                                 </div>
                             </div>
                         </div>
-
+<%--
                         <div class="emergency-contact mt-4" data-aos="fade-up" data-aos-delay="350">
                             <div class="emergency-card p-3">
                                 <h6 class="mb-2"><i class="bi bi-telephone-fill me-2"></i>Need Urgent Help?</h6>
                                 <p class="mb-0">Contact your nearest blood center through MedConnect support.</p>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
                 </div>
 
@@ -101,40 +122,40 @@
                 <!-- Register Form -->
                 <div class="col-lg-6">
                     <div class="appointment-form-wrapper" data-aos="fade-up" data-aos-delay="200">
-                        <form action="forms/appointment.php" method="post" class="appointment-form php-email-form">
-                            <div class="row gy-3">
+                        <form action="register" method="post">
+                        <div class="row gy-3">
                                 <!-- Name -->
                                 <div class="col-md-6">
-                                    <input type="text" name="prenom" class="form-control" placeholder="First Name"
+                                    <input type="text" name="prenom" class="form-control" placeholder="Prénom"
                                            required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="nom" class="form-control" placeholder="Last Name" required>
+                                    <input type="text" name="nom" class="form-control" placeholder="Nom" required>
                                 </div>
 
                                 <!-- Email & Phone -->
                                 <div class="col-md-6">
-                                    <input type="email" name="email" class="form-control" placeholder="Email Address"
+                                    <input type="email" name="email" class="form-control" placeholder="Adresse e-mail"
                                            required>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" name="telephone" class="form-control" placeholder="Phone Number"
+                                    <input type="tel" name="telephone" class="form-control" placeholder="Numéro de téléphone"
                                            required>
                                 </div>
 
                                 <!-- Password -->
                                 <div class="col-md-6">
-                                    <input type="password" name="motDePasse" class="form-control" placeholder="Password"
+                                    <input type="password" name="motDePasse" class="form-control" placeholder="Mot de passe"
                                            required>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="password" name="confirmPassword" class="form-control"
-                                           placeholder="Confirm Password" required>
+                                           placeholder="Confirmer le mot de passe" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <select name="role" class="form-select" required>
-                                        <option value="">Register As</option>
+                                        <option value="">S'inscrire en tant que</option>
                                         <option value="donneur">Donneur</option>
                                         <option value="hopital">Hôpital / Patient</option>
                                         <option value="admin">Administrateur</option>
@@ -144,28 +165,14 @@
 
                                 <!-- Submission -->
                                 <div class="col-12">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your account has been created successfully!</div>
-
                                     <button type="submit" class="btn btn-appointment w-100">
-                                        <i class="bi bi-person-plus me-2"></i>Register
+                                        <i class="bi bi-person-plus me-2"></i>S'inscrire
                                     </button>
                                 </div>
                                 <div class="col-12 text-center mt-3">
-                                    <p>Already have an account? <a href="login.jsp">Sign In</a></p>
+                                    <p>Already have an account? <a href="login.jsp">Se connecter</a></p>
                                 </div>
 
-
-<%--                                <div class="col-12">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your appointment request has been sent successfully. We will contact you shortly!</div>
-
-                                    <button type="submit" class="btn btn-appointment w-100">
-                                        <i class="bi bi-calendar-plus me-2"></i>Book Appointment
-                                    </button>
-                                </div>--%>
 
                             </div>
                         </form>

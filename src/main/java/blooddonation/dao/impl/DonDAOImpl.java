@@ -1,3 +1,4 @@
+/*
 package blooddonation.dao;
 
 import blooddonation.bean.Don;
@@ -100,3 +101,4 @@ public class DonDAOImpl implements DonDAO {
         return list;
     }
 }
+*/
