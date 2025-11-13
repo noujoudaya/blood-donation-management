@@ -14,4 +14,10 @@ public interface DemandeDao {
     int countActiveUrgent();
     List<Demande> getRecentDemands(int limit);
     List<Demande> findUrgentByGroup(GroupeSang group);
+    int countByHopital(int hopitalId);
+
+    int countActiveByHopital(int hopitalId);
+
+    List<Demande> getRecentByHopital(int hopitalId, int limit);
+
 }
