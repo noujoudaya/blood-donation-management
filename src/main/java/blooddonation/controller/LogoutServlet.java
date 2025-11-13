@@ -22,10 +22,6 @@ public class LogoutServlet extends HttpServlet {
             session.invalidate();
         }
 
-        // Optional: show a logout success message
-        HttpSession newSession = request.getSession(true);
-        newSession.setAttribute("successMsg", "Vous vous êtes déconnecté avec succès.");
-
         // Redirect to login page
         response.sendRedirect(request.getContextPath() + "/login.jsp");
     }
