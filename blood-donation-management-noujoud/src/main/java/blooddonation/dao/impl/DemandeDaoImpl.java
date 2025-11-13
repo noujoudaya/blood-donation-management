@@ -51,4 +51,33 @@ public class DemandeDaoImpl implements DemandeDao {
             return query.list();
         }
     }
+    @Override
+    public int countByHopital(int hopitalId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Long count = (Long) session.createQuery(
+                    "SELECT COUNT(d) FROM Demande d WHERE d.hopital.id = :id"
+            ).setParameter("id", hopitalId).uniqueResult();
+            return count != null ? count.intValue() : 0;
+        }
+    }
+    @Override
+    public int countActiveByHopital(int hopitalId) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            Long count = (Long) session.createQuery(
+                    "SELECT COUNT(d) FROM Demande d WHERE d.hopital.id = :id AND (d.statut = 'Urgent' OR d.statut = 'En_cours')"
+            ).setParameter("id", hopitalId).uniqueResult();
+            return count != null ? count.intValue() : 0;
+        }
+    }
+    @Override
+    public List<Demande> getRecentByHopital(int hopitalId, int limit) {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            return session.createQuery(
+                            "FROM Demande d WHERE d.hopital.id = :id ORDER BY d.dateDemande DESC",
+                            Demande.class
+                    ).setParameter("id", hopitalId)
+                    .setMaxResults(limit)
+                    .list();
+        }
+    }
 }
