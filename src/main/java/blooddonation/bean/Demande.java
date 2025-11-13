@@ -1,5 +1,7 @@
 package blooddonation.bean;
 
+import blooddonation.enums.GroupeSang;
+import blooddonation.enums.Statut;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -11,11 +13,12 @@ public class Demande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idDemande;
-    private String groupeSanguin;
-    private double quantite;
-    private String urgence;
+    @Enumerated(EnumType.STRING)
+    private GroupeSang groupeSanguin;
     private LocalDate dateDemande;
-    private String statut;
+
+    @Enumerated(EnumType.STRING)
+    private Statut statut;
 
     @ManyToOne
     @JoinColumn(name = "hopital_id")
@@ -31,20 +34,24 @@ public class Demande {
     public int getIdDemande() { return idDemande; }
     public void setIdDemande(int idDemande) { this.idDemande = idDemande; }
 
-    public String getGroupeSanguin() { return groupeSanguin; }
-    public void setGroupeSanguin(String groupeSanguin) { this.groupeSanguin = groupeSanguin; }
+    public GroupeSang getGroupeSanguin() {
+        return groupeSanguin;
+    }
 
-    public double getQuantite() { return quantite; }
-    public void setQuantite(double quantite) { this.quantite = quantite; }
+    public void setGroupeSanguin(GroupeSang groupeSanguin) {
+        this.groupeSanguin = groupeSanguin;
+    }
 
-    public String getUrgence() { return urgence; }
-    public void setUrgence(String urgence) { this.urgence = urgence; }
+    public Statut getStatut() {
+        return statut;
+    }
 
     public LocalDate getDateDemande() { return dateDemande; }
     public void setDateDemande(LocalDate dateDemande) { this.dateDemande = dateDemande; }
 
-    public String getStatut() { return statut; }
-    public void setStatut(String statut) { this.statut = statut; }
+    public void setStatut(Statut statut) {
+        this.statut = statut;
+    }
 
     public Hopital getHopital() { return hopital; }
     public void setHopital(Hopital hopital) { this.hopital = hopital; }

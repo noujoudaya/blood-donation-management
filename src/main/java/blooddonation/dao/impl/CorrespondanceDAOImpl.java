@@ -1,13 +1,13 @@
 package blooddonation.dao.impl;
 
 import blooddonation.bean.Correspondance;
-import blooddonation.dao.interfaces.CorrespondanceDAO;
+import blooddonation.dao.interfaces.CorrespondanceDao;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CorrespondanceDAOImpl implements CorrespondanceDAO {
+public class CorrespondanceDAOImpl implements CorrespondanceDao {
 
     private Connection conn;
 

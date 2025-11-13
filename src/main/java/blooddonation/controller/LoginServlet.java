@@ -39,13 +39,14 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute("successMsg", "Connexion réussie !");
 
             // Redirect by role
-            if ("donneur".equals(user.getRole())) {
-                resp.sendRedirect("dashboardDonneur.jsp");
-            } else if ("hopital".equals(user.getRole())) {
-                resp.sendRedirect("dashboardHopital.jsp");
+            if ("donneur".equalsIgnoreCase(user.getRole())) {
+                resp.sendRedirect(req.getContextPath() + "/donneur/dashboard.jsp");
+            } else if ("hopital".equalsIgnoreCase(user.getRole())) {
+                resp.sendRedirect(req.getContextPath() + "/hopital/dashboard.jsp");
             } else {
-                resp.sendRedirect("adminDashboard.jsp");
+                resp.sendRedirect(req.getContextPath() + "/admin/dashboard.jsp");
             }
+
         } else {
             session.setAttribute("errorMsg", "Email ou mot de passe incorrect !");
             resp.sendRedirect("login.jsp");

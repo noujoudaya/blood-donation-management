@@ -11,6 +11,8 @@ public class Hopital extends User {
 
     private String nomHopital;
     private String localisation;
+    private String ville;
+
 
     @OneToMany(mappedBy = "hopital", cascade = CascadeType.ALL)
     private List<Demande> demandes;
@@ -24,4 +26,12 @@ public class Hopital extends User {
 
     public List<Demande> getDemandes() { return demandes; }
     public void setDemandes(List<Demande> demandes) { this.demandes = demandes; }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
 }

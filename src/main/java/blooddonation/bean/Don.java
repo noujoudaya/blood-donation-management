@@ -13,7 +13,6 @@ public class Don {
     private int idDon;
     private LocalDate dateDon;
     private String lieu;
-    private double quantite;
 
     @ManyToOne
     @JoinColumn(name = "donneur_id")
@@ -33,8 +32,6 @@ public class Don {
     public String getLieu() { return lieu; }
     public void setLieu(String lieu) { this.lieu = lieu; }
 
-    public double getQuantite() { return quantite; }
-    public void setQuantite(double quantite) { this.quantite = quantite; }
 
     public Donneur getDonneur() { return donneur; }
     public void setDonneur(Donneur donneur) { this.donneur = donneur; }
